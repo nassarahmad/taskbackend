@@ -11,7 +11,7 @@ const server = http.createServer((req,res)=>{
 
     // part 2 
 
-    fs.readFile('contactUs.html',(err,data)=>{
+   /*  fs.readFile('contactUs.html',(err,data)=>{
         if(err){
 
             res.writeHead(500,{"content-type":'text/plain'})
@@ -21,21 +21,24 @@ const server = http.createServer((req,res)=>{
             res.writeHead(200,{"content-type":"text/html"})
             res.end(data)
         }
+    }) */
+
+
+
+    fs.readFile('index.html',(err,data)=>{
+        if(err){
+    
+            res.writeHead(500,{"content-type":'text/plain'})
+            console.log("sorry can't read from the server")
+        }
+        else {
+            res.writeHead(200,{"content-type":"text/html"})
+            res.end(data)
+        }
     })
 
-
 })
-fs.readFile('index.html',(err,data)=>{
-    if(err){
 
-        res.writeHead(500,{"content-type":'text/plain'})
-        console.log("sorry can't read from the server")
-    }
-    else {
-        res.writeHead(200,{"content-type":"text/html"})
-        res.end(data)
-    }
-})
 
 // 127.0.0.1 // localhost
 
